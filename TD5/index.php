@@ -10,10 +10,11 @@
       }
       print_r($files);
       echo '<br/>';
-}
+    }
 
     function changeMod($path, $perm){
         chmod($path, $perm);
+      echo sprintf('%o', fileperms($path)); // TODO
     }
 
 
@@ -64,7 +65,11 @@
         
         <h1>1.4</h1>
         <?php changeMod("test.txt", 0700); ?>
+        <br/>
         
+        <h1>2.1</h1>
+        
+        // TODO
         <br/>
         <br/>
         <br/>
