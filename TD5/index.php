@@ -11,6 +11,15 @@ function creatTable(){
     $files[$elem] = filesize($elem);
   }
   print_r($files);
+
+  function listerFichiersExt($path, $ext){
+    $array = scandir($path);
+    array $ret;
+    foreach($array as $elem){
+        if(fnmatch('#.'.$ext.'$#'))
+            array_push($ret,$elem);
+    }
+    return $ret;
 }
 ?>
 
