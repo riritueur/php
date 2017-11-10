@@ -15,7 +15,8 @@
         <br/>
         <br/>
         <h1>1.1</h1>
-        <p>Lecture du fichier</p>
+        <p>Fonctoins de manipulation des répertoires:</p>
+      <p>Créer un répertoire: mkdir<br/>Renommer un répertoire: rename<br/>Supprimer un répertoire: rmdir</p>
         
         <br/>
         <br/>
