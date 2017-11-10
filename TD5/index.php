@@ -3,9 +3,12 @@
 <?php
 function listerFichiersExt($path, $ext){
     $array = scandir($path);
+    array $ret;
     foreach($array as $elem){
-        if(preg_match)
+        if(fnmatch('#.'.$ext.'$#'))
+            array_push($ret,$elem);
     }
+    return $ret;
 }
 ?>
 
