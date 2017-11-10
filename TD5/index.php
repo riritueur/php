@@ -69,7 +69,31 @@
         
         <h1>2.1</h1>
         
-        // TODO
+        Créez une fonction permettant de créer une table qui représente l’arborescence à partir du répertoire courant.	
+
+        La table sera représentée comme suit : 	
+
+        [current] => Array (	
+        [0] => ..
+        [1] => cat.gif
+        [2] => dog.gif
+        [3] => horse.gif
+        [4] => Array ( cars	[0] => ..
+                    [1] => clio.gif
+                    [2] => polo.gif
+                    [3] => Array ( BMW [0] => ..
+                            ...
+                    [4] => c4.gif
+                    [5] => ...
+        [5] => ...
+            )
+
+
+
+        Dans le cas où un élément de la table contient un répertoire, il sera lui même une table et ainsi de suite pour toute l’arborescence.
+
+	En partant de la fonction précédente faites une fonction calculant la taille d’un répertoire. Nous ne considérerons que les tailles des fichiers contenus dans le répertoire.
+
         <br/>
         <br/>
         <br/>
