@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 
 <?php
-function creatTable(){
-  $array = scandir(".");
-  $files = array();
-      
-  foreach($array as $elem){
-    $files[$elem] = filesize($elem);
-  }
-  print_r($files);
-  echo '<br/>';
+    function creatTable(){
+      $array = scandir(".");
+      $files = array();
+
+      foreach($array as $elem){
+        $files[$elem] = filesize($elem);
+      }
+      print_r($files);
+      echo '<br/>';
 }
 
-  function changeMod($path, $perm){
-    chmod($path, $perm);
-  }
-
-
-  function listerFichiersExt($path, $ext){
-    $array = scandir($path);
-    $ret = array();
-    foreach($array as $elem){
-        if(preg_match('#.'.$ext.'#', $elem))
-            array_push($ret,$elem);
+    function changeMod($path, $perm){
+        chmod($path, $perm);
     }
-    print_r($ret);
-    echo '<br/>';
-}
+
+
+    function listerFichiersExt($path, $ext){
+        $array = scandir($path);
+        $ret = array();
+        foreach($array as $elem){
+            if(preg_match('#.'.$ext.'#', $elem))
+                array_push($ret,$elem);
+        }
+        print_r($ret);
+        echo '<br/>';
+    }
+
+    
 ?>
 
 
