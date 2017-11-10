@@ -4,23 +4,28 @@
 function creatTable(){
   $array = scandir(".");
   $files = array();
-    
-  print_r($array);
-  
+      
   foreach($array as $elem){
     $files[$elem] = filesize($elem);
   }
   print_r($files);
+  echo '<br/>';
 }
+
+  function changeMod($path, $perm){
+    chmod($path, $perm);
+  }
+
 
   function listerFichiersExt($path, $ext){
     $array = scandir($path);
     $ret = array();
     foreach($array as $elem){
-        if(fnmatch('#.'.$ext.'$#', $elem))
+        if(preg_match('#.'.$ext.'#', $elem))
             array_push($ret,$elem);
     }
     print_r($ret);
+    echo '<br/>';
 }
 ?>
 
@@ -51,7 +56,7 @@ function creatTable(){
         <h1>1.2</h1>
         
         <h1>1.3</h1>
-        <?php creatTable(); listerFichiersExt(".","txt"); ?>
+        <?php creatTable(); listerFichiersExt(".", "txt"); changeMod("test.txt", 0700); ?>
         <br/>
         <br/>
         <br/>
