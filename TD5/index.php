@@ -15,8 +15,12 @@
         <br/>
         <br/>
         <h1>1.1</h1>
-        <p>Fonctoins de manipulation des répertoires:</p>
-      <p>Créer un répertoire: mkdir<br/>Renommer un répertoire: rename<br/>Supprimer un répertoire: rmdir</p>
+        <p>Fonctions de manipulation des répertoires:</p>
+        <p>Créer un répertoire: mkdir<br/>Renommer un répertoire: rename<br/>Supprimer un répertoire: rmdir</p>
+        
+        <?php mkdir("test",0755); ?>
+        <?php rename("test","testeu"); ?>
+        <?php rmdir("testeu"); ?>
         
         <br/>
         <br/>
