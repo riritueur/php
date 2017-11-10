@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 
+<?php
+function listerFichiersExt($path, $ext){
+    $array = scandir($path);
+    foreach($array as $elem){
+        if(preg_match)
+    }
+}
+?>
+
+
 <html lang="fr">
   <head>
     <meta charset="utf-8">
@@ -15,9 +25,10 @@
         <br/>
         <br/>
         <h1>1.1</h1>
-        <p>Fonctoins de manipulation des répertoires:</p>
-      <p>Créer un répertoire: mkdir<br/>Renommer un répertoire: rename<br/>Supprimer un répertoire: rmdir</p>
-        
+        <p>Fonctions de manipulation des répertoires:</p>
+        <p>Créer un répertoire: mkdir<br/>Renommer un répertoire: rename<br/>Supprimer un répertoire: rmdir</p>
+        <p>mkdir échoue si le dossier existe déjà ou si les permissions ne permettent pas la création de dossier. Pour cela, on peut utiliser chmod pour obtenir les droits.</p>
+        <h1>1.2</h1>
         <br/>
         <br/>
         <br/>
