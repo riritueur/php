@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 
+<?php
+function creatTable(){
+  $array = scandir(".");
+  $files = array();
+    
+  print_r($array);
+  
+  foreach($array as $elem){
+    $files[$elem] = filesize($elem);
+  }
+  print_r($files);
+}
+?>
+
+
 <html lang="fr">
   <head>
     <meta charset="utf-8">
@@ -17,11 +32,16 @@
         <h1>1.1</h1>
         <p>Fonctions de manipulation des répertoires:</p>
         <p>Créer un répertoire: mkdir<br/>Renommer un répertoire: rename<br/>Supprimer un répertoire: rmdir</p>
-        
+                
         <?php mkdir("test",0755); ?>
         <?php rename("test","testeu"); ?>
         <?php rmdir("testeu"); ?>
         
+        <p>mkdir échoue si le dossier existe déjà ou si les permissions ne permettent pas la création de dossier. Pour cela, on peut utiliser chmod pour obtenir les droits.</p>
+        <h1>1.2</h1>
+        
+        <h1>1.3</h1>
+        <?php creatTable(); ?>
         <br/>
         <br/>
         <br/>
