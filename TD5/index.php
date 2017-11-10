@@ -53,10 +53,16 @@ function creatTable(){
         <?php rmdir("testeu"); ?>
         
         <p>mkdir échoue si le dossier existe déjà ou si les permissions ne permettent pas la création de dossier. Pour cela, on peut utiliser chmod pour obtenir les droits.</p>
+        
         <h1>1.2</h1>
+        <?php listerFichiersExt(".", "txt");?>
         
         <h1>1.3</h1>
-        <?php creatTable(); listerFichiersExt(".", "txt"); changeMod("test.txt", 0700); ?>
+        <?php creatTable(); ?>
+        
+        <h1>1.4</h1>
+        <?php changeMod("test.txt", 0700); ?>
+        
         <br/>
         <br/>
         <br/>
