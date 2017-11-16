@@ -18,19 +18,41 @@
     <h1>TD6</h1>
     <br/>
     <br/>
-    <h1>1.1</h1>
+    <h2>1.1</h2>
+    <br/>
     <a href="menu.html">menu.html</a>
     <br/>
-    <a href="afficher_session.php">afficher_session.php</a>
+    
+    <br/>
+    <h2>1.2</h2>
     <br/>
     <a href="forms.php">forms.php</a>
     <br/>
-    <a href="login.php">login.php</a>
+    
     <br/>
-    <a href="mailing.php">mailing.php</a>
+    <h2>1.5</h2>
+    <br/>
+    
+    <a href="afficher_session.php">afficher_session.php</a>
+    <br/>
+    
+    <br/>
+    <h2>1.5</h2>
     <br/>
     <a href="detruire_session.php">detruire_session.php</a>
     <br/>
+    <br/><br/>
+    
+    <h2>2.1</h2>
+    <br/>
+    <a href="login.php">login.php</a>
+    <br/><br/>
+    
+    <h2>2.5</h2>
+    <br/>
+    <a href="mailing.php">mailing.php</a>
+    <br/>
+  
     <br/>
     <br/>
     <a href="../index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>   

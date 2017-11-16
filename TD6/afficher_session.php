@@ -8,7 +8,7 @@ $count = $_SESSION['count'] = $count;
 } else {
     $count = $_SESSION['count'] = 0;
 }
-echo $count;
+echo "Page visitée : ".$count;
 
 ?>
 <br/>

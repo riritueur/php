@@ -3,11 +3,11 @@
 		 
 
      $to      = $_POST['email'];
-     $subject = 'le sujet';
-     $message = 'Ceci est un message';
-     $headers = 'From: jesus@reviens.com' . "\r\n" .
-     'Reply-To: jesus@reviens.com' . "\r\n" .
-     'X-Mailer: PHP/' . phpversion();
+     $subject = 'Voici votre mot de passe';
+     $message = 'Votre mot de passe est '. $_COOKIE['mdp'];
+     $headers = 'From: donot@reply' . "\r\n" .
+     'Reply-To: donot@reply' . "\r\n" .
+     'X-Mailer: PHP/';
 
      mail($to, $subject, $message, $headers);
 
