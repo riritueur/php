@@ -1,13 +1,10 @@
 <?php
   session_start();
-  echo $_SESSION['prenom'].'<br />';
-  echo $_SESSION['nom'].'<br />';
-  session_destroy();
+  setcookie('login', NULL, -1);
   $_SESSION = array();
-  echo $_SESSION['prenom'].'<br />';
-  echo $_SESSION['nom'].'<br />';
-
-  //header('Location: menu.html');
-  //exit();
+  session_destroy();  
+  
+  header('Location: index.php');
+  exit();
 
 ?>

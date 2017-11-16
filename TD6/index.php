@@ -25,13 +25,11 @@
     <br/>
     <a href="forms.php">forms.php</a>
     <br/>
-    <a href="creer_session.php">creer_session.php</a>
-    <br/>
-    <a href="ouvrir_session.php">ouvrir_session.php</a>
-    <br/>
     <a href="login.php">login.php</a>
     <br/>
     <a href="mailing.php">mailing.php</a>
+    <br/>
+    <a href="detruire_session.php">detruire_session.php</a>
     <br/>
     <br/>
     <br/>
