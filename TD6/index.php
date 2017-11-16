@@ -29,6 +29,10 @@
     <br/>
     <a href="ouvrir_session.php">ouvrir_session.php</a>
     <br/>
+    <a href="login.php">login.php</a>
+    <br/>
+    <a href="mailing.php">mailing.php</a>
+    <br/>
     <br/>
     <br/>
     <a href="../index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>   
