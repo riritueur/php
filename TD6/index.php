@@ -14,16 +14,24 @@
   </head>
   <body>
     
-        <br/>
-        <h1>TD6</h1>
-        <br/>
-        <br/>
-        <h1>1.1</h1>
-        
-        <br/>
-        <br/>
-        <br/>
-        <a href="../index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>   
+    <br/>
+    <h1>TD6</h1>
+    <br/>
+    <br/>
+    <h1>1.1</h1>
+    <a href="menu.html">menu.html</a>
+    <br/>
+    <a href="afficher_session.php">afficher_session.php</a>
+    <br/>
+    <a href="forms.php">forms.php</a>
+    <br/>
+    <a href="creer_session.php">creer_session.php</a>
+    <br/>
+    <a href="ouvrir_session.php">ouvrir_session.php</a>
+    <br/>
+    <br/>
+    <br/>
+    <a href="../index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>   
    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
