@@ -3,10 +3,10 @@
 		 
 
      $to      = $_POST['email'];
-     $subject = 'Voici votre mot de passe';
+     $subject = 'Mot de passe oublié';
      $message = 'Votre mot de passe est '. $_COOKIE['mdp'];
-     $headers = 'From: donot@reply' . "\r\n" .
-     'Reply-To: donot@reply' . "\r\n" .
+     $headers = 'From: donotreply@floda' . "\r\n" .
+     'Reply-To: donotreply@floda' . "\r\n" .
      'X-Mailer: PHP/';
 
      mail($to, $subject, $message, $headers);
