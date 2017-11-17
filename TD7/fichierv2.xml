@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<librairie><livre categorie="Langue"><titre langue="fr">Apprendre Italien</titre><auteur>Simone Ziani</auteur><annee>2005</annee><prix devise="">30.00</prix><resume/><editeur/></livre><livre categorie="Enfant"><titre langue="fr">Harry Potter</titre><auteur>J K. Rowling</auteur><annee>2005</annee><prix devise="">22.99</prix><resume/><editeur/></livre><livre categorie="Web"><titre langue="en">Learning XML</titre><auteur>Erik T. Ray</auteur><annee>2008</annee><prix devise="">20.99</prix><resume/><editeur/></livre></librairie>
+<librairie>
+	<livre categorie="Langue">
+		<titre langue="fr">Apprendre Italien</titre>
+		<auteur>Simone Ziani</auteur>
+		<annee>2005</annee>
+		<prix devise="">30.00</prix>
+		<resume/>
+		<editeur/>
+	</livre>
+	<livre categorie="Enfant">
+		<titre langue="fr">Harry Potter</titre>
+		<auteur>J K. Rowling</auteur>
+		<annee>2005</annee>
+		<prix devise="">22.99</prix>
+		<resume/>
+		<editeur/>
+	</livre>
+	<livre categorie="Web">
+		<titre langue="en">Learning XML</titre>
+		<auteur>Erik T. Ray</auteur>
+		<annee>2008</annee>
+		<prix devise="">20.99</prix>
+		<resume/>
+		<editeur/>
+	</livre>
+</librairie>
