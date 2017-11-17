@@ -28,7 +28,9 @@
 			}
 		echo '</ul>';
 		?>
-		
+		  <br/><br/>
+		 <a href="forms.php">Formulaire</a>
+		<br/><br/><br/><br/>
 		
     <a href="../index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>   
    
