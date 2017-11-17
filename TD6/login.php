@@ -40,16 +40,7 @@
       
                 echo '<br/><br/>';
 				echo '<a href="index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>';
-      
-      
-      
-      
-                
-      
-      
-      
-      
-					?>
+      ?>
 	
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
