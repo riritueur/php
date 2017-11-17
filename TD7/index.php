@@ -14,12 +14,14 @@
 			$fichier = "fichier.xml";
 			$xml = simplexml_load_file($fichier);
 		echo '<ul>';
-			foreach($xml as $attribute){
-				echo '<li>Livre: '.$attribute->titre;
+			foreach($xml as $livre){
+				echo '<li>Livre: '.$livre->titre;
 				echo'<ul>';
-				echo '<li>Auteur: '.$attribute->auteur.'</li>';
-				echo '<li>Année: '.$attribute->annee.'</li>';
-				echo '<li>Prix: '.$attribute->prix.'</li>';
+				echo '<li>Langue: '.$livre->titre['langue'].'</li>';
+				echo '<li>Catégorie: '.$livre['categorie'].'</li>';
+				echo '<li>Auteur: '.$livre->auteur.'</li>';
+				echo '<li>Année: '.$livre->annee.'</li>';
+				echo '<li>Prix: '.$livre->prix.'</li>';
 				echo '</ul></li>';
 			}
 		echo '</ul>';
