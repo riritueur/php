@@ -13,6 +13,7 @@
 				}
 				else{
 					echo "Bienvenue ".$_COOKIE['login']."!";
+                  echo "mdp = ".$_COOKIE['mdp']."!";
 				}
       
                 echo '<br/><br/><form action="mailing.php" method="post">';
