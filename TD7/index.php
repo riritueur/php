@@ -11,6 +11,8 @@
   <body>
 		
 		<?php
+		echo '<h1>1.1 + 1.2</h1>';
+		echo '<p>Affichage de fichier fichier.xml avec récupération dans une variable xml.</p>';
 			$fichier = "fichier.xml";
 			$xml = simplexml_load_file($fichier);
 		echo '<ul>';
