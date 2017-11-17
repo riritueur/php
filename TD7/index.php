@@ -13,7 +13,16 @@
 		<?php
 			$fichier = "fichier.xml";
 			$xml = simplexml_load_file($fichier);
-			print_r($xml);
+		echo '<ul>';
+			foreach($xml as $attribute){
+				echo '<li>Livre: '.$attribute->titre;
+				echo'<ul>';
+				echo '<li>Auteur: '.$attribute->auteur.'</li>';
+				echo '<li>Année: '.$attribute->annee.'</li>';
+				echo '<li>Prix: '.$attribute->prix.'</li>';
+				echo '</ul></li>';
+			}
+		echo '</ul>';
 		?>
 		
 		

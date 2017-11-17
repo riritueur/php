@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <librairie>
 	<livre categorie="Langue">
-		<titre langue="fr">Apprendre Italien></titre>
+		<titre langue="fr">Apprendre Italien</titre>
 		<auteur>Simone Ziani</auteur>
 		<annee>2005</annee>
 		<prix>30.00</prix>
