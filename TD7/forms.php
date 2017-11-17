@@ -11,7 +11,7 @@
 
   <?php  
       echo '
-       <br/><form action="connect.php" method="post">
+       <br/><form>
         <div class="form-group">
           <label for="email">Mail</label>
           <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="exemple@login.com">
