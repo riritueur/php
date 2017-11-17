@@ -15,6 +15,8 @@
 		echo '<p>Affichage de fichier fichier.xml avec récupération dans une variable xml.</p>';
 			$fichier = "fichier.xml";
 			$xml = simplexml_load_file($fichier);
+			$xml_doc = new DOMDocument('1.0', 'utf-8');
+			$xml_doc->appendChild($librairie = $xml_doc->createElement('librairie'));
 		echo '<ul>';
 			foreach($xml as $livre){
 				echo '<li>Livre: '.$livre->titre;
@@ -24,9 +26,24 @@
 				echo '<li>Auteur: '.$livre->auteur.'</li>';
 				echo '<li>Année: '.$livre->annee.'</li>';
 				echo '<li>Prix: '.$livre->prix.'</li>';
-				echo '</ul></li>';
+				echo '</ul></li><br/>';
+				$livre_node = $xml_doc->createElement('livre','');
+				$livre_node->setAttribute('categorie',$livre['categorie']);
+				$librairie->appendChild($livre_node);
+				$titre_node = $xml_doc->createElement('titre',$livre->titre);
+				$titre_node->setAttribute('langue',$livre->titre['langue']);
+				$livre_node->appendChild($titre_node);
+				$livre_node->appendChild($xml_doc->createElement('auteur',$livre->auteur));
+				$livre_node->appendChild($xml_doc->createElement('annee',$livre->annee));
+				$prix_node = $xml_doc->createElement('prix',$livre->prix);
+				$prix_node->setAttribute('devise','');
+				$livre_node->appendChild($prix_node);
+				$livre_node->appendChild($xml_doc->createElement('resume',''));
+				$livre_node->appendChild($xml_doc->createElement('editeur',''));			
 			}
 		echo '</ul>';
+		$xml_save = $xml_doc->saveXML();
+		file_put_contents('fichierv2.xml', $xml_save);
 		?>
 		
 		
