@@ -74,14 +74,17 @@
               echo $email .'<br/>';
               if(filter_var($email, FILTER_VALIDATE_EMAIL) == true){
                 echo "Formulaire accepté";
-              } else { echo "Email incorrect"; }
-            } else { echo "Age incorrect"; }
-        } else { echo"Prenom incorrect"; }
-    } else { echo "Nom incorrect"; }
+              } else { echo "<strong>Email incorrect</strong>"; }
+            } else { echo "<strong>Age incorrect</strong>"; }
+        } else { echo"<strong>Prenom incorrect</strong>"; }
+    } else { echo "<strong>Nom incorrect</strong>"; }
     
   }
    
    ?>
+  <br/><br/>
+  <a href="index.php"><img src="../Entypo+/Entypo+/arrow-bold-left.svg" height="25px" width="45px"/>Retour index</a>
+  
   
 
     <!-- Optional JavaScript -->
