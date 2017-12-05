@@ -32,12 +32,6 @@
       *    mettre annuaire en public
       **/
       
-      $user="votre login";
-      $pass="votre mot de passe";
-      $host="localhost";
-
-      //connexion au serveur
-      $id_connexion = mysql_connect($host,$user,$pass);
       
       /**   TODO : Faire un script php qui permet de :
       *
@@ -52,8 +46,10 @@
       *
       **/
 
-
     </pre>
+    <br/><br/>
+    
+    <?php include("script_MySQL.php"); ?>
     
     <br/><br/>
     <p>Voir le résultat MySQl <a href="www.richard-peres.xyz/php/"> ici</a></p>
