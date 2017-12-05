@@ -3,8 +3,6 @@
 $user="votre login";
 $pass="votre mot de passe";
 $host="localhost";
-
-//connexion au serveur
 $bdd = mysql_connect($host,$user,$pass);
 
 echo '<br/><br/> <p> Rechercher une entrée dans la table</p> <br/><br/>';
@@ -42,7 +40,7 @@ echo '<form method="post">
           
           $req = mysql_query('SELECT * FROM annuaire WHERE nom like \'%'.$nom.'\' and prenom like \'%'.$prenom.'\';');
           while($data = mysql_fetch_assoc($req)) 
-              echo '<p>' $data['id'].' '.$data['nom'].' '.$data['prenom'].' '.$data['numPoste'].'</p>'; 
+              echo '<p>'. $data['id'].' '.$data['nom'].' '.$data['prenom'].' '.$data['numPoste'].'</p>'; 
         } else { echo"<strong>Prenom incorrect</strong>"; }
       } else { echo "<strong>Nom incorrect</strong>"; }
     }
@@ -52,30 +50,19 @@ echo '<form method="post">
 echo '<br/><br/> <p> Rajouter une entrée dans la table</p> <br/><br/>';
 
 echo '<form method="post">
-      <div class="row">
+        <div class="form-row">
         <div class="col">
           <label for="prenom" class="col-sm-2 col-form-label"><strong>Prénom *</strong></label>
           <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Richard" required>
-          <div class="invalid-feedback">
-            Champ invalide
           </div>
-        </div>
-        <div class="col">
+          <div class="col">
           <label for="nom" class="col-sm-2 col-form-label"><strong>Nom *</strong></label>
           <input type="text" class="form-control" name="nom" id="nom" placeholder="Peres" required>
-          <div class="invalid-feedback">
-            Champ invalide
           </div>
-        </div>
-        <div class="form-group row">
-        <label for="numPoste" class="col-sm-2 col-form-label">Numéro de poste invalide</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" name="numPoste" id="numPoste" placeholder="12" required>
-          <div class="invalid-feedback">
-            Numéro de poste invalide
+          <div class="col">
+          <label for="numPoste" class="col-sm-2 col-form-label">Numéro de poste</label>
+          <input type="text" class="form-control" name="numPoste" id="numPoste" placeholder="12.12" required>
           </div>
-        </div>
-      </div>
       </div><br/>
       <button type="submit" class="btn btn-dark btnSend"
       name="submit">Envoyer</button>
@@ -117,11 +104,11 @@ echo '<form method="post">
     </form>';
       
       if(isset($_POST['submit2'])){
-
         $id = $_POST['id'];
-
-        if( /* la table existe */ )
-          // TODO delete la table
+        $req = mysql_query('SELECT * FROM annuaire WHERE id= \''.$nom.'\';');
+        
+        if($req != false)
+          mysql_query('DELETE FROM annuaire WHERE id = \''.$id.'\' ');
       }
       
     echo '<br/><br/> <p> Modifier le numéro de poste d\'une entrée dans la table</p> <br/><br/>';
@@ -155,7 +142,9 @@ echo '<form method="post">
       
       if(preg_match('/([A-z-]{2,})+/', $nom)){
         if(preg_match('/([A-z-]{2,})+/', $prenom)){
-            // TODO requete mysql
+            mysql_query( 'UPDATE annuaire
+                          SET numPoste = \''. $numPoste . '\'
+                          WHERE id = \''.$id.'\';');
         } else { echo"<strong>Prenom incorrect</strong>"; }
       } else { echo "<strong>Nom incorrect</strong>"; }
       
@@ -174,14 +163,15 @@ echo '<form method="post">
                 </thead>
                 <tbody>';
                 
-              $rcount = $bdd->query('SELECT count(*) FROM annuaire');
+              $rcount = mysql_query('SELECT count(*) FROM annuaire');
+              $rcount = intval($rcount);
 
-        for (int $i = 0 ; $i < $rcount ; i++) {
+        for ($i = 0 ; $i < $rcount ; $i++) {
 
-          $rid = $bdd->query('SELECT id FROM annuaire WHERE id = \''.$i.'\'');
-          $rnom = $bdd->query('SELECT nom FROM annuaire WHERE id = \''.$i.'\'');
-          $rprenom = $bdd->query('SELECT prenom FROM annuaire WHERE id = \''.$i.'\'');
-          $rnumPoste = $bdd->query('SELECT numPoste FROM annuaire WHERE id = \''.$i.'\'');
+          $rid = mysql_query('SELECT id FROM annuaire WHERE id = \''.$i.'\'');
+          $rnom = mysql_query('SELECT nom FROM annuaire WHERE id = \''.$i.'\'');
+          $rprenom = mysql_query('SELECT prenom FROM annuaire WHERE id = \''.$i.'\'');
+          $rnumPoste = mysql_query('SELECT numPoste FROM annuaire WHERE id = \''.$i.'\'');
 
           echo '
             <tr>
