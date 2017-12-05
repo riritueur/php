@@ -32,19 +32,6 @@
       *    mettre annuaire en public
       **/
       
-      
-      /**   TODO : Faire un script php qui permet de :
-      *
-      *     - Rechercher une entrée dans la table annuaire à partir
-      *     des premières lettres du nom et/ou du prénom
-      *    
-      *     - Ajouter une nouvelle entrée dans l’annuaire.
-      *
-      *     - Modifier un numéro de poste.
-      *
-      *     - Supprimer une entrée de l’annuaire.
-      *
-      **/
 
     </pre>
     <br/><br/>
