@@ -14,7 +14,11 @@
     <h1><a href="TD4/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD4</a></h1>
     <h1><a href="TD5/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD5</a></h1>
   	<h1><a href="TD6/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD6</a></h1>
-		<h1><a href="TD7/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD7</a></h1>
+    <h1><a href="TD7/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD7</a></h1>
+    <h1><a href="TD8/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD8</a></h1>
+    <h1><a href="TD9/"><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>TD9</a></h1>
+    <br/><br/>
+    <h1><a href="TPs_PHP_PERES_RIGAUT.zip" download><img src="./Entypo+/Entypo+/arrow-bold-right.svg" height="45px" width="65px"/>Télécharger tout le projet <img src="./Entypo+/Entypo+/arrow-bold-left.svg" height="45px" width="65px"/></a></h1>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
