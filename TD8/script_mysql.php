@@ -5,7 +5,7 @@ $pass="votre mot de passe";
 $host="localhost";
 $bdd = mysql_connect($host,$user,$pass);
 
-echo '<br/><br/> <p> Rechercher une entrée dans la table</p> <br/><br/>';
+echo '<br/><hr/><br/> <h2> Rechercher une entrée dans la table</h2> <br/><br/>';
 
 
 echo '<form method="post">
@@ -47,7 +47,7 @@ echo '<form method="post">
 
 
 
-echo '<br/><br/> <p> Rajouter une entrée dans la table</p> <br/><br/>';
+echo '<br/><hr/><br/> <h2> Rajouter une entrée dans la table</h2> <br/><br/>';
 
 echo '<form method="post">
         <div class="form-row">
@@ -81,12 +81,12 @@ echo '<form method="post">
               mysql_query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \'00.00\');');
             elseif(preg_match('/([0-9]{2}.[0-9]{2})+/',$numPoste))
                mysql_query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \''. $numPoste.'\');');
-            } else { echo "<strong>Age incorrect</strong>"; }
-        } else { echo"<strong>Prenom incorrect</strong>"; }
-    } else { echo "<strong>Nom incorrect</strong>"; }
+            } else { echo"<strong>Prenom incorrect</strong>"; }
+        } else { echo "<strong>Nom incorrect</strong>";}
+    }
       
 
-      echo '<br/><br/> <p> Supprimer une entrée dans la table</p> <br/><br/>';
+      echo '<br/><hr/><br/> <h2> Supprimer une entrée dans la table</h2> <br/><br/>';
   
       echo '<form method="post">
       <div class="row">
@@ -111,7 +111,7 @@ echo '<form method="post">
           mysql_query('DELETE FROM annuaire WHERE id = \''.$id.'\' ');
       }
       
-    echo '<br/><br/> <p> Modifier le numéro de poste d\'une entrée dans la table</p> <br/><br/>';
+    echo '<br/><hr/><br/> <h2> Modifier le numéro de poste d\'une entrée dans la table</h2> <br/><br/>';
 
     echo '<form method="post">
       <div class="row">
@@ -150,7 +150,7 @@ echo '<form method="post">
       
     }
 
-    echo '<br/><br/> <p> La table entière : </p> <br/><br/>';
+    echo '<br/><hr/><br/> <h2> La table entière : </h2> <br/><br/>';
       
        echo '<table class="table table-hover">
                 <thead>
