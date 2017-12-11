@@ -1,9 +1,14 @@
 <?php  
 
-$user="u178917848_td8";
+$user="u178917848_user";
 $pass="password";
 $host="mysql.hostinger.fr";
-$bdd = mysql_connect($host,$user,$pass);
+$bd="u178917848_td8";
+
+$mysqli = new mysqli($host, $user, $pass, $bd);
+if ($mysqli->connect_errno) {
+    echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
 
 echo '<br/><hr/><br/> <h2> Rechercher une entrée dans la table</h2> <br/><br/>';
 
@@ -38,7 +43,7 @@ echo '<form method="post">
       if(preg_match('/([A-z-]{2,})+/', $nom)){
         if(preg_match('/([A-z-]{2,})+/', $prenom)){
           
-          $req = mysql_query('SELECT * FROM annuaire WHERE nom like \'%'.$nom.'\' and prenom like \'%'.$prenom.'\';');
+          $req = $mysqli->query('SELECT * FROM annuaire WHERE nom like \'%'.$nom.'\' and prenom like \'%'.$prenom.'\';');
           while($data = mysql_fetch_assoc($req)) 
               echo '<p>'. $data['id'].' '.$data['nom'].' '.$data['prenom'].' '.$data['numPoste'].'</p>'; 
         } else { echo"<strong>Prenom incorrect</strong>"; }
@@ -78,9 +83,9 @@ echo '<form method="post">
       if(preg_match('/([A-z-]{2,})+/', $nom)){
         if(preg_match('/([A-z-]{2,})+/', $prenom)){
             if($numPoste == null)
-              mysql_query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \'00.00\');');
+              $mysqli->query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \'00.00\');');
             elseif(preg_match('/([0-9]{2}.[0-9]{2})+/',$numPoste))
-               mysql_query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \''. $numPoste.'\');');
+               $mysqli->query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \''. $numPoste.'\');');
             } else { echo"<strong>Prenom incorrect</strong>"; }
         } else { echo "<strong>Nom incorrect</strong>";}
     }
@@ -105,10 +110,10 @@ echo '<form method="post">
       
       if(isset($_POST['submit2'])){
         $id = $_POST['id'];
-        $req = mysql_query('SELECT * FROM annuaire WHERE id= \''.$nom.'\';');
+        $req = $mysqli->query('SELECT * FROM annuaire WHERE id= \''.$nom.'\';');
         
         if($req != false)
-          mysql_query('DELETE FROM annuaire WHERE id = \''.$id.'\' ');
+          $mysqli->query('DELETE FROM annuaire WHERE id = \''.$id.'\' ');
       }
       
     echo '<br/><hr/><br/> <h2> Modifier le numéro de poste d\'une entrée dans la table</h2> <br/><br/>';
@@ -142,7 +147,7 @@ echo '<form method="post">
       
       if(preg_match('/([A-z-]{2,})+/', $nom)){
         if(preg_match('/([A-z-]{2,})+/', $prenom)){
-            mysql_query( 'UPDATE annuaire
+            $mysqli->query( 'UPDATE annuaire
                           SET numPoste = \''. $numPoste . '\'
                           WHERE id = \''.$id.'\';');
         } else { echo"<strong>Prenom incorrect</strong>"; }
@@ -163,15 +168,15 @@ echo '<form method="post">
                 </thead>
                 <tbody>';
                 
-              $rcount = mysql_query('SELECT count(*) FROM annuaire');
+              $rcount = $mysqli->query('SELECT count(*) FROM annuaire');
               $rcount = intval($rcount);
 
         for ($i = 0 ; $i < $rcount ; $i++) {
 
-          $rid = mysql_query('SELECT id FROM annuaire WHERE id = \''.$i.'\'');
-          $rnom = mysql_query('SELECT nom FROM annuaire WHERE id = \''.$i.'\'');
-          $rprenom = mysql_query('SELECT prenom FROM annuaire WHERE id = \''.$i.'\'');
-          $rnumPoste = mysql_query('SELECT numPoste FROM annuaire WHERE id = \''.$i.'\'');
+          $rid = $mysqli->query('SELECT id FROM annuaire WHERE id = \''.$i.'\'');
+          $rnom = $mysqli->query('SELECT nom FROM annuaire WHERE id = \''.$i.'\'');
+          $rprenom = $mysqli->query('SELECT prenom FROM annuaire WHERE id = \''.$i.'\'');
+          $rnumPoste = $mysqli->query('SELECT numPoste FROM annuaire WHERE id = \''.$i.'\'');
 
           echo '
             <tr>
