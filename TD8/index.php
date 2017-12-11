@@ -27,15 +27,11 @@
       );
       
       insert into annuaire (nom,prenom, numPoste) values('Floda', 'Relti', '12.12');
-      
-      /**  TODO : Check annuaire et le insert values et
-      *    mettre annuaire en public
-      **/
             
     </pre>
     <br/><br/>
 
-    <?php include("script_MySQL.php"); ?>
+    <?php include("script2.php"); ?>
     
     <br/><br/>
     <p>Voir le résultat MySQl <a href="www.richard-peres.xyz"> ici</a></p>
