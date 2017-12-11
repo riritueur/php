@@ -1,8 +1,8 @@
 <?php  
 
-$user="votre login";
-$pass="votre mot de passe";
-$host="localhost";
+$user="u178917848_td8";
+$pass="password";
+$host="mysql.hostinger.fr";
 $bdd = mysql_connect($host,$user,$pass);
 
 echo '<br/><hr/><br/> <h2> Rechercher une entrée dans la table</h2> <br/><br/>';
