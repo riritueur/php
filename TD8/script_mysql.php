@@ -83,7 +83,7 @@ echo '<form method="post">
       if(preg_match('/([A-z-]{2,})+/', $nom)){
         if(preg_match('/([A-z-]{2,})+/', $prenom)){
             if($numPoste == null)
-              $mysqli->query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \'00.00\');');
+              $mysqli->query('insert into annuaire (nom,prenom) values(\''.$nom.'\', \''.$prenom .'\');');
             elseif(preg_match('/([0-9]{2}.[0-9]{2})+/',$numPoste))
                $mysqli->query('insert into annuaire (nom,prenom, numPoste) values(\''.$nom.'\', \''.$prenom .'\', \''. $numPoste.'\');');
             } else { echo"<strong>Prenom incorrect</strong>"; }
