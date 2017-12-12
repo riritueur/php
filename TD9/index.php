@@ -150,7 +150,6 @@
 		$berline->setOptions(false,true,false,true);<br/>
 		<br/>
 		$berline->displayVoiture();<br/>
-		echo \'<br/><br/>\';<br/>
 		$coupe->displayVoiture();<br/>';
 		
 		
