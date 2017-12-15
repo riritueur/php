@@ -15,7 +15,84 @@
   <br/><br/>
   <section class="container-fluid">
 		<?php
-		class Voiture{
+		class Vehicule{
+			protected $_marque;
+			protected $_modele;
+			protected $_prix;
+			
+			const MARQUES_MODELES = array("Renault" => array("Twingo", "Clio", "Megane", "Laguna"),
+																		"Peugeot" => array("107", "207", "308", "508"),
+																		"Citroen" => array("C1", "C3", "C4", "C5"),
+																		"Volkswagen" => array("Lupo", "Polo", "Golf", "Passat"),
+																		"BMW" => array("Z4")
+																		 );
+			
+			public function __construct($marque, $modele, $prix){
+				$this->setMarque($marque);
+				$this->setModele($modele);
+				$this->setPrix($prix);
+			}
+			
+			public function setMarque($marque){
+				if(is_string($marque)){
+					if(array_key_exists($marque, self::MARQUES_MODELES)){
+						$this->_marque = $marque;
+					}
+					else{
+						$string = "";
+						foreach(self::MARQUES_MODELES as $cle => $val){
+							$string .= $cle . ", ";
+						}
+						trigger_error('Les marques disponibles sont: '.$string, E_USER_WARNING);
+					}
+				}
+				else{
+					trigger_error('La marque doit être une chaîne de caractères.', E_USER_WARNING);
+				}
+			}
+			
+			public function setModele($modele){
+				if(is_string($modele)){
+					if(in_array($modele, self::MARQUES_MODELES[$this->_marque],true)){
+						$this->_modele = $modele;
+					}
+					else{
+						$string = "";
+						foreach(self::MARQUES_MODELES[$this->_marque] as $cle => $val){
+							$string .= $cle . ", ";
+						}
+						trigger_error('Les modèles disponibles pour la marque '.$this->_marque.' sont: '.$string, E_USER_WARNING);
+					}
+				}
+				else{
+					trigger_error('Le modèle doit être une chaîne de caractères.', E_USER_WARNING);
+				}
+			}
+			
+			public function setPrix($prix){
+				if(is_int($prix)){
+					if($prix <= 300000 && $prix >= 5000){
+						$this->_prix = $prix;
+					}
+					else{
+						trigger_error('Le prix doit être compris entre 5000 et 300000.', E_USER_WARNING);
+					}
+				}
+				else{
+					trigger_error('Le prix doit être un entier.', E_USER_WARNING);
+				}
+			}
+			
+			public function displayVehicule(){
+				echo 'Vehicule: <br/>
+							 - Marque: '.$this->_marque
+							.'<br/>- Modèle: '.$this->_modele
+							.'<br/>- Prix: '.$this->_prix;
+			}
+			
+		}
+		
+		class Voiture extends Vehicule{
 			private $_peinture;
 			private $_couleur;
 			private $_boite;
@@ -25,7 +102,8 @@
 			private $_capteur_luminosite;
 			private $_regulateur_vitesse;
 		
-			public function __construct($couleur, $peinture = "classique", $boite = "manuelle", $nb_porte = 5, $radar_recul = false, $capteur_pluie = false, $capteur_luminosite = false, $regulateur_vitesse = false){
+			public function __construct($marque, $modele, $prix, $couleur, $peinture = "classique", $boite = "manuelle", $nb_porte = 5, $radar_recul = false, $capteur_pluie = false, $capteur_luminosite = false, $regulateur_vitesse = false){
+				parent::__construct($marque, $modele, $prix);
 				$this->setPeinture($peinture);
 				$this->setCouleur($couleur);
 				$this->setBoite($boite);
@@ -34,7 +112,7 @@
 			}
 			
 			public function __destruct(){
-				echo 'La voiture de couleur '.$this->_couleur.' et ayant '.$this->_nb_porte.' portes a été détruite.';
+				echo 'La voiture de couleur '.$this->_couleur.' et ayant '.$this->_nb_porte.' portes a été détruite.<br/>';
 			}
 			
 			public function setPeinture($peinture){
@@ -132,8 +210,9 @@
 			}
 			
 			public function displayVoiture(){
-				echo 'Voiture: <br/>
-							 - Peinture: '.$this->_peinture
+				parent::displayVehicule();
+				echo	'<br/>Type: Voiture'
+							.'<br/>- Peinture: '.$this->_peinture
 							.'<br/> - Couleur: '.$this->_couleur
 							.'<br/> - Boîte de vitesses: '.$this->_boite
 							.'<br/> - Nombre de portes: '.$this->_nb_porte
@@ -144,24 +223,31 @@
 			}
 		}
 	
-		echo '$berline = new Voiture("rouge");<br/>
-		$coupe = new Voiture("bleu", "metalisee", "automatique", 2, true, true, false, true);<br/>
+		echo '$berline = new Voiture("Volkswagen","Polo",10982,"rouge");<br/>
+		$coupe = new Voiture("Peugeot","308",109098,"bleu", "metalisee", "automatique", 2, true, true, false, true);<br/>
 		$berline->setPeinture("nacree");<br/>
 		$berline->setOptions(false,true,false,true);<br/>
+		$berline->setPrix(5666);<br/>
 		<br/>
-		$berline->displayVoiture();<br/>
-		$coupe->displayVoiture();<br/>';
+		$berline->displayVoiture();<br/>-------------------<br/>';
 		
 		
-		$berline = new Voiture("rouge");
-		$coupe = new Voiture("bleu", "metalisee", "automatique", 2, true, true, false, true);
+		$berline = new Voiture("Volkswagen","Polo",30255,"rouge");
+		$coupe = new Voiture("Peugeot","308",109098,"bleu", "metalisee", "automatique", 2, true, true, false, true);
 		$berline->setPeinture("nacree");
 		$berline->setOptions(false,true,false,true);
+		$berline->setPrix(5666);
 		
 		$berline->displayVoiture();
-		echo '<br/><br/>';
+		echo '<br/><br/>$coupe->displayVoiture();<br/>-------------------<br/>';
 		$coupe->displayVoiture();
 		
+		echo '<br/><br/><br/>';
+		echo '<h2>2.5</h2>';
+		echo 'On peut modifier la valeur des attributs marque, modèle et prix des voitures en utilisant simplement les méthodes<br/>comme si elles appartenaient à la classe voiture.<br/>
+		Exemple: $berline->setPrix(5666)<br/><br/>';
+		
+		$bmw = new Vehicule("BMW","Z4",35000);
 		?>
     
     
