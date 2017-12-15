@@ -1,9 +1,9 @@
 <?php  
 
-$user="u178917848_user";
-$pass="password";
-$host="mysql.hostinger.fr";
-$bd="u178917848_td8";
+$user="pr607695";
+$pass="pr607695";
+$host="linserv-info-01.iutnice.unice.fr";
+$bd="pr607695";
 
 $mysqli = new mysqli($host, $user, $pass, $bd);
 if ($mysqli->connect_errno) {
@@ -16,15 +16,15 @@ echo '<br/><hr/><br/> <h2> Rechercher une entrée dans la table</h2> <br/><br/>'
 echo '<form method="post">
       <div class="row">
         <div class="col">
-          <label for="prenom" class="col-sm-2 col-form-label"><strong>Prénom *</strong></label>
-          <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Richard" required>
+          <label for="prenom" class="col-sm-2 col-form-label"><strong>Prénom</strong></label>
+          <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Richard">
           <div class="invalid-feedback">
             Champ invalide
           </div>
         </div>
         <div class="col">
-          <label for="nom" class="col-sm-2 col-form-label"><strong>Nom *</strong></label>
-          <input type="text" class="form-control" name="nom" id="nom" placeholder="Peres" required>
+          <label for="nom" class="col-sm-2 col-form-label"><strong>Nom</strong></label>
+          <input type="text" class="form-control" name="nom" id="nom" placeholder="Peres">
           <div class="invalid-feedback">
             Champ invalide
           </div>
@@ -40,18 +40,26 @@ echo '<form method="post">
       $nom = $_POST['nom'];
       $prenom = $_POST['prenom'];
       
-      if(preg_match('/([A-z-]{2,})+/', $nom)){
-        if(preg_match('/([A-z-]{2,})+/', $prenom)){
-          
-          $req = $mysqli->query('SELECT * FROM annuaire WHERE nom like \'%'.$nom.'\' and prenom like \'%'.$prenom.'\';');
-          while($data = mysql_fetch_assoc($req)) 
-              echo '<p>'. $data['id'].' '.$data['nom'].' '.$data['prenom'].' '.$data['numPoste'].'</p>'; 
-        } else { echo"<strong>Prenom incorrect</strong>"; }
-      } else { echo "<strong>Nom incorrect</strong>"; }
+      if(!($nom == null && $prenom == null)) {
+        if(preg_match('/([A-z-]{2,})+/', $nom) || $nom == null){
+          if(preg_match('/([A-z-]{2,})+/', $prenom) || $prenom == null){
+
+            $req = mysqli_query($mysqli, 'SELECT * FROM annuaire WHERE nom like \'%'.$nom.'\' and prenom like \'%'.$prenom.'\';');
+            print_r($req);
+            //if($req != null)
+              while($data = mysqli_fetch_assoc($req)) 
+                  echo '<p>'. $data['id'].' '.$data['nom'].' '.$data['prenom'].' '.$data['numPoste'].'</p>'; 
+            //else echo "<strong>Aucun résultat</strong>";
+          } else { echo"<strong>Prenom incorrect</strong>"; }
+        } else { echo "<strong>Nom incorrect</strong>"; }
+        
+      }  else { echo "<strong>Veuillez entre un nom et/ou un prénom</strong>"; }
+      
+      
     }
 
 
-
+/**
 echo '<br/><hr/><br/> <h2> Rajouter une entrée dans la table</h2> <br/><br/>';
 
 echo '<form method="post">
@@ -190,4 +198,6 @@ echo '<form method="post">
         echo '
           </tbody>
         </table>';
+        
+        **/
 ?>

@@ -11,10 +11,10 @@
 </head>
 
 <body>
-  <h1>TD8</h1>
+  <h1 class="container-fluid">TD8</h1>
   <br/><br/>
-  <section class="container-fluid">
-    
+  <section class="container-fluid border">
+   
     <pre>
       create table annuaire
       (
@@ -31,7 +31,7 @@
     </pre>
     <br/><br/>
 
-    <?php include("script2.php"); ?>
+    <?php include("script_mysql.php"); ?>
     
     <br/><br/>
     <p>Voir le résultat MySQl <a href="www.richard-peres.xyz"> ici</a></p>
