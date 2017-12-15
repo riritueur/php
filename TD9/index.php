@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 
+<?php  
+	##Initialisation
+	static $user="pr607695";
+	static $pass="pr607695";
+	static $host="linserv-info-01.iutnice.unice.fr";
+	static $bd="pr607695";
+	$mysqli = new mysqli($host, $user, $pass, $bd);
+	if ($mysqli->connect_errno) {
+		echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+	}
+
+
+	function insertVoiture($marque, $modele, $prix){
+		if(is_string($marque) && is_string($modele) && is_int($prix)){
+			global $mysqli;
+			$req = $mysqli->query("replace into Vehicule values('".$marque."','".$modele."',".$prix.");");
+			echo '<br/><br/><br/><br/>'.$req.'<br/><br/><br/>';
+		}
+		else{
+			echo '<br/><br/><br/><br/> error <br/><br/><br/>';
+		}
+	}
+?>
+
+
 <html lang="fr">
 
 <head>
@@ -14,6 +39,7 @@
   <h1>TD9</h1>
   <br/><br/>
   <section class="container-fluid">
+		
 		<?php
 		class Vehicule{
 			protected $_marque;
@@ -258,6 +284,7 @@
 		$bmw = new Vehicule("BMW","Z4",35000);
 		$bmw->displayVehicule();
 		
+		insertVoiture('Renault','Clio',11999);
 		
 		?>
     
