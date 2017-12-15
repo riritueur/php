@@ -33,6 +33,10 @@
 				$this->setPrix($prix);
 			}
 			
+			public function __destruct(){
+				echo 'La vehicule de marque '.$this->_marque.', de modèle '.$this->_modele.' et de prix ' .$this->_prix .' a été détruit.<br/>';
+			}
+			
 			public function setMarque($marque){
 				if(is_string($marque)){
 					if(array_key_exists($marque, self::MARQUES_MODELES)){
@@ -247,7 +251,14 @@
 		echo 'On peut modifier la valeur des attributs marque, modèle et prix des voitures en utilisant simplement les méthodes<br/>comme si elles appartenaient à la classe voiture.<br/>
 		Exemple: $berline->setPrix(5666)<br/><br/>';
 		
+		echo '<br/>$bmw = new Vehicule("BMW","Z4",35000);<br/>
+		$bmw->displayVehicule();<br/>
+		-------------------<br/>';
+		
 		$bmw = new Vehicule("BMW","Z4",35000);
+		$bmw->displayVehicule();
+		
+		
 		?>
     
     
