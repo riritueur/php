@@ -284,7 +284,15 @@
 		$bmw = new Vehicule("BMW","Z4",35000);
 		$bmw->displayVehicule();
 		
+		insertVoiture('Renault','Twingo',9999);
 		insertVoiture('Renault','Clio',11999);
+		insertVoiture('Renault','Megane',11999);
+		insertVoiture('Peugeot','107',11999);
+		insertVoiture('Peugeot','207',11999);
+		insertVoiture('Peugeot','308',11999);
+		insertVoiture('Volkswagen','Lupo',11999);
+		insertVoiture('Volkswagen','Polo',11999);
+		insertVoiture('Volkswagen','Golf',11999);
 		
 		?>
     
